@@ -1,0 +1,79 @@
+Test Suite:
+Amazon website Automation
+
+home.test.js
+
+01 - Amazone Home Page
+---- Test Case 1:
+//// Open URL (https://amazon.ca),
+
+---- Test Case 2:  
+//// Verify url (https://amazon.ca/)
+
+---- Test Case 3:
+//// Verify tittle (Amazon.ca)
+
+02 - Search Feature
+
+---- Test Case 1:
+//// Find & Click on an element
+
+---- Test Case 2:
+//// Add text to an input field
+
+---- Test Case 3:
+//// Verify the text from an element
+
+03 - Dropdown
+
+---- Test Case 1:
+//// Find & Click on an element
+
+---- Test Case 2:
+//// Verification of dropbox on page
+
+---- Test Case 3:
+//// Look for element on Dropdown
+
+---- Test Case 4:
+//// Click on Dropdown element
+
+---- Test Case 5:
+//// Verify text from an element
+
+Car.test.js
+
+01 - Amazone Home Page
+---- Test Case 1:
+//// Open URL (https://amazon.ca),
+
+---- Test Case 2:  
+//// Verify url (https://amazon.ca/)
+
+---- Test Case 3:
+//// Verify tittle (Amazon.ca)
+
+02 - Search for item
+
+---- Test Case 1:
+//// Find & Click on an element
+
+---- Test Case 2:
+//// Add text to an input field
+
+---- Test Case 3:
+//// Verify the text from an element
+
+03 - Pick first item from result
+
+---- Test Case 1:
+//// Get price item and store it
+
+---- Test Case 2:
+//// Clic, on add to cart
+
+---- Test Case 3:
+//// Verify text Added to cart
+
+---- Test Case 4:
+//// Verify cart subtotal is the same as price
