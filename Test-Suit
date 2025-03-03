@@ -70,10 +70,18 @@ Car.test.js
 //// Get price item and store it
 
 ---- Test Case 2:
-//// Clic, on add to cart
+//// Click, on add to cart
 
 ---- Test Case 3:
 //// Verify text Added to cart
 
 ---- Test Case 4:
 //// Verify cart subtotal is the same as price
+
+04 - Shopping Cart validation
+
+---- Test Case 1:
+//// Add quantity on items
+
+---- Test Case 2:
+//// Verify subtotal of items price changes
