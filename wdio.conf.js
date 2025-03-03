@@ -1,5 +1,7 @@
 import { dirname, join } from "node:path";
 import url from "node:url";
+import path from "node:path";
+
 const __dirname = dirname(url.fileURLToPath(import.meta.url));
 
 export const config = {
@@ -108,7 +110,24 @@ export const config = {
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   // services: [],
-  //
+  services: [
+    [
+      "visual",
+      {
+        // Some options, see the docs for more
+        baselineFolder: path.join(process.cwd(), "baseline"),
+        formatImageName: "{tag}-{logName}-{width}x{height}",
+        screenshotPath: path.join(process.cwd(), "tmp"),
+        savePerInstance: true, // crossbrowser, nice to have
+        autoSaveBaseline: true,
+        misMatchPercentage: 0.15,
+        isWithinMisMatchTolerance: true,
+        isSameDimensions: true,
+        isExactSameImage: false,
+        // ... more options
+      },
+    ],
+  ],
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: https://webdriver.io/docs/frameworks
@@ -130,7 +149,17 @@ export const config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: [
+    "allure",
+    // you can add other reporters as needed
+  ],
+  reporterOptions: {
+    allure: {
+      outputDir: "./allure-results", // or any directory you prefer
+      disableWebdriverStepsReporting: true,
+      disableMochaHooks: true,
+    },
+  },
 
   // Options to be passed to Mocha.
   // See the full list at http://mochajs.org/
@@ -236,8 +265,9 @@ export const config = {
    * @param {boolean} result.passed    true if test has passed, otherwise false
    * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
    */
-  // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-  // },
+  afterTest: async function () {
+    await browser.takeScreenshot();
+  },
 
   /**
    * Hook that gets executed after the suite has ended
