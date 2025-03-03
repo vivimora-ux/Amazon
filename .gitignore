@@ -1,0 +1,12 @@
+# Node Artifacts
+node_modules/
+node_modules*/
+
+# Results
+
+allure-results/
+baseline/
+tmp/
+
+# Config
+.env
